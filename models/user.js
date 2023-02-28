@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.belongsTo(models.Role, {
         foreignKey: 'role_id'
-    });
+      });
+    }
   }
   User.init({
     dni: DataTypes.STRING,
