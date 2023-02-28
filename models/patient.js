@@ -13,10 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Patient.belongsTo(models.User, {
         foreignKey: 'user_id'
-    });
+      });
       // Patient.hasOne(models.Medical_history, {
       //   foreignKey: "medical_history_id"
-      // })
+      // });
     }
   }
   Patient.init({
