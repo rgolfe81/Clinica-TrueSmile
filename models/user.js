@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
       User.belongsTo(models.Role, {
         foreignKey: 'role_id'
     });
+      User.hasMany(models.Patient, {
+        foreingKey:'user_id'
+      });
+  }
   }
   User.init({
     dni: DataTypes.STRING,
