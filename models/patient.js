@@ -14,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
       Patient.belongsTo(models.User, {
         foreignKey: 'user_id'
     });
+      // Patient.hasOne(models.Medical_history, {
+      //   foreignKey: "medical_history_id"
+      // })
     }
   }
   Patient.init({
