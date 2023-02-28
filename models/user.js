@@ -13,9 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.belongsTo(models.Role, {
         foreignKey: 'role_id'
-    });
+      });
       User.hasMany(models.Patient, {
         foreingKey:'user_id'
+      });
+      User.hasMany(models.Doctor,{
+        foreignKey: 'user_id'
       });
   }
   }
