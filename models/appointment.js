@@ -13,7 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Appointment.belongsTo(models.Dental_intervention,{
         foreignKey: 'dental_intervention_id'
-      })
+      });
+      Appointment.belongsTo(models.Patient, {
+        foreingKey:'patient_id'
+      });
+      Appointment.belongsTo(models.Doctor, {
+        foreingKey:'doctor_id'
+      });
     }
   }
   Appointment.init({

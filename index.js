@@ -3,11 +3,12 @@ const app = express();
 const db = require("./db/db");
 require('dotenv').config();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const userRoutes = require('./views/userRoutes')
 
 app.use(express.json());
+
 app.use(userRoutes);
 
 app.listen(PORT, () => {

@@ -27,7 +27,7 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      rol_id: {
+      role_id: {
         type: Sequelize.INTEGER,
         references: {
           model: "Roles",

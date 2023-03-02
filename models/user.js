@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     city: DataTypes.STRING,
     phone: DataTypes.STRING,
     email: DataTypes.STRING,
-    rol_id: DataTypes.INTEGER
+    role_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'User',
