@@ -13,6 +13,12 @@ module.exports = {
           user_id: 2,
           createdAt: "2023-03-03 12:00:00",
           updatedAt: "2023-03-03 12:00:00"
+        },
+        {
+          medical_speciality: "Dentista pediátrico",
+          user_id: 4,
+          createdAt: "2023-03-03 12:00:00",
+          updatedAt: "2023-03-03 12:00:00"
         }
     ], {});
   },

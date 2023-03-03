@@ -16,6 +16,15 @@ module.exports = {
           user_id: 1,
           createdAt: "2023-03-03 12:00:00",
           updatedAt: "2023-03-03 12:00:00"
+        },
+        {
+          age: 41,
+          weight: 83,
+          height: 1.78,
+          allergy: "ninguna",
+          user_id: 3,
+          createdAt: "2023-03-03 12:00:00",
+          updatedAt: "2023-03-03 12:00:00"
         }
     ], {});
   },
