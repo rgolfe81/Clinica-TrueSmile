@@ -4,19 +4,18 @@ const db = require("./db/db");
 require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
-
-const userRoutes = require('./views/userRoutes')
+const router = require('./router');
 
 app.use(express.json());
+app.use(router);
 
-app.use(userRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Servidor en marcha en el puerto ${PORT}`);
+    console.log(`Server running in port ${PORT}`);
     
     db.authenticate()
     .then(() => {
-        console.log("Connected to the database, sync is ok");
+        console.log("Connected to database");
     })
     .catch((error) => {
         console.log("Error: " + error);
