@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/rgolfe81/Clinica-TrueSmile#readme",
   "dependencies": {
-    "bcrypt": "^5.1.0",
+    "bcrypt": "5.1.0",
     "dotenv": "16.0.3",
     "express": "4.18.2",
     "mysql2": "3.1.2",
