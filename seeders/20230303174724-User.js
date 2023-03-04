@@ -52,7 +52,7 @@ module.exports = {
           surname: "López",
           city: "Valencia",
           phone: "666000456",
-          email: "Carme@gmail.com",
+          email: "Carmen@gmail.com",
           password: bcrypt.hashSync("333333", 10),
           role_id: 1,
           createdAt: "2023-03-03 12:00:00",
