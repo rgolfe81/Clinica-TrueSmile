@@ -1,6 +1,6 @@
-const { User, Doctor } = require("../models");
+const { User } = require("../models");
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+
 
 const userController = {};
 
@@ -17,20 +17,24 @@ userController.profile = async(req, res) => {
 
 userController.updateUser = async (req, res) => {
     try {
-        const { name, password } = req.body;
-        const userId = req.userId
+        const { name, password, surname, city, phone, email } = req.body;
+        const userId = req.userId;
 
-        // const encryptedPassword = bcrypt.hashSync(password, 10);
+        let updateFields = {
+            name: name,
+            surname: surname,
+            city: city,
+            phone: phone,
+            email: email,
+        };
 
-        const updateUSer = await User.update(
-            {
-                name: name,
-                password: encryptedPassword,
-                surname: surname,
-                city: city,
-                phone: phone,
-                email: email,
-            },
+        if (password) {
+            const encryptedPassword = bcrypt.hashSync(password, 10);
+            updateFields.password = encryptedPassword;
+        }
+
+        const updateUser = await User.update(
+            updateFields,
             {
                 where: {
                     id: userId
@@ -38,7 +42,7 @@ userController.updateUser = async (req, res) => {
             }
         );
 
-        if (!updateUSer) {
+        if (!updateUser) {
             return res.send('User not updated')
         }
 

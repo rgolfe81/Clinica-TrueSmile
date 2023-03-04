@@ -1,25 +1,25 @@
-userController.getAppointment = async (req, res) => {
-    try {
-        const userAppointment = await User.findByPk(
-            req.userId,
-            { 
-                include: [
-                    {
-                    model: Service,
-                    through: {
-                        attributes: ["doctor_id", "patient_id", "dental_intervention_id", "createdAt",],
-                    }
+// userController.getAppointment = async (req, res) => {
+//     try {
+//         const userAppointment = await User.findByPk(
+//             req.userId,
+//             { 
+//                 include: [
+//                     {
+//                     model: Service,
+//                     through: {
+//                         attributes: ["doctor_id", "patient_id", "dental_intervention_id", "createdAt",],
+//                     }
                     
-                },
-            ]
-            }
-        )
-        return res.json(userAppointment)
-    } catch (error) {
+//                 },
+//             ]
+//             }
+//         )
+//         return res.json(userAppointment)
+//     } catch (error) {
         
-        return res.status(500).send(error.message)
-    }
-}
+//         return res.status(500).send(error.message)
+//     }
+// }
 
 // userController.getAppointmentDoctor = async (req, res) => {
 //     const userAppointmentDoctor = await Appointment.findAll(
