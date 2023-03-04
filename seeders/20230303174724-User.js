@@ -1,5 +1,7 @@
 'use strict';
 
+const bcrypt = require('bcrypt');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -15,7 +17,7 @@ module.exports = {
           city: "Valencia",
           phone: "666123456",
           email: "vicent@gmail.com",
-          password: "000000",
+          password: bcrypt.hashSync("000000", 10),
           role_id: 1,
           createdAt: "2023-03-03 12:00:00",
           updatedAt: "2023-03-03 12:00:00"
@@ -27,7 +29,7 @@ module.exports = {
           city: "Valencia",
           phone: "666456456",
           email: "pepa@gmail.com",
-          password: "111111",
+          password: bcrypt.hashSync("111111", 10),
           role_id: 1,
           createdAt: "2023-03-03 12:00:00",
           updatedAt: "2023-03-03 12:00:00"
@@ -39,7 +41,7 @@ module.exports = {
           city: "Valencia",
           phone: "666555456",
           email: "josep@gmail.com",
-          password: "222222",
+          password: bcrypt.hashSync("222222", 10),
           role_id: 1,
           createdAt: "2023-03-03 12:00:00",
           updatedAt: "2023-03-03 12:00:00"
@@ -51,7 +53,7 @@ module.exports = {
           city: "Valencia",
           phone: "666000456",
           email: "Carme@gmail.com",
-          password: "333333",
+          password: bcrypt.hashSync("333333", 10),
           role_id: 1,
           createdAt: "2023-03-03 12:00:00",
           updatedAt: "2023-03-03 12:00:00"
@@ -63,7 +65,7 @@ module.exports = {
           city: "Vilamarxant",
           phone: "666000222",
           email: "rgolfe81@gmail.com",
-          password: "444444",
+          password: bcrypt.hashSync("999999", 10),
           role_id: 2,
           createdAt: "2023-03-03 12:00:00",
           updatedAt: "2023-03-03 12:00:00"
@@ -75,7 +77,7 @@ module.exports = {
           city: "Ontinyent",
           phone: "666880222",
           email: "paula@gmail.com",
-          password: "555555",
+          password: bcrypt.hashSync("999999", 10),
           role_id: 2,
           createdAt: "2023-03-03 12:00:00",
           updatedAt: "2023-03-03 12:00:00"
