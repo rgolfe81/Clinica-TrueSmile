@@ -1,4 +1,4 @@
-const { Appointment} = require("../models");
+const { Appointment, Patient, Doctor} = require("../models");
 const appointmentController = {};
 
 appointmentController.createAppointments = async (req, res) => {
@@ -15,8 +15,42 @@ appointmentController.createAppointments = async (req, res) => {
     } catch (error) {
     return res.status(500).send(error.message);
     }
-}
+};
 
+appointmentController.getAppointmentsByPatient = async (req, res) => {
+    try {
+      const { patientId } = req.params;
+  
+      // Busca todas las citas del paciente
+      const appointments = await Appointment.findAll({
+        where: { patient_id: patientId },
+        include: [
+          { model: Patient, as: "Patient" },
+          { model: Doctor, as: "Doctor" }
+        ]
+      });
+  
+      return res.json(appointments);
+    } catch (error) {
+      return res.status(500).send(error.message);
+    }
+  };
+  
+  // Controlador para obtener todas las citas de un doctor
+  appointmentController.getAppointmentsByDoctor = async (req, res) => {
+    try {
+      const { doctorId } = req.params;
+  
+      // Busca todas las citas del doctor
+      const appointments = await Appointment.findAll({
+        where: { doctor_id: doctorId }
+      });
+  
+      return res.json(appointments);
+    } catch (error) {
+      return res.status(500).send(error.message);
+    }
+  };
 
 // appointmentController.getAppointment = async (req, res) => {
 //     try {
