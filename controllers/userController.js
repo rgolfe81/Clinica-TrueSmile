@@ -27,7 +27,11 @@ userController.updateUser = async (req, res) => {
         const updateUSer = await User.update(
             {
                 name: name,
-                password: encryptedPassword
+                password: encryptedPassword,
+                surname: surname,
+                city: city,
+                phone: phone,
+                email: email,
             },
             {
                 where: {
@@ -69,42 +73,42 @@ userController.getAppointment = async (req, res) => {
     }
 }
 
-userController.getAppointmentDoctor = async (req, res) => {
-    const userAppointmentDoctor = await Appointment.findAll(
-        {
-            where: { 
-                user_id: req.userId 
-            },
-            include: [
-                Service,
-            {
-            model: User,
-            attributes: {
-                exclude: ["password", "role_id", "createdAt", "updatedAt"]
-                },
-            },
-            {
-            model: Doctor,
-            attributes: {
-                exclude: ["user_id", "createdAt", "updatedAt"]
-                },
-                include: {
-                    model: User,
-                    attributes: {
-                        exclude: ["password", "role_id", "createdAt", "updatedAt"]
-                        },
-                    }
-            },
-            ],
-                attributes: {
-                exclude: ["user_id", "doctor_id", "service_id"]
-                }
-            }
-        )
-        return res.json(userAppointmentDoctor)
-        } catch (error) {
-        return res.status(500).send(error.message)
-    }
+// userController.getAppointmentDoctor = async (req, res) => {
+//     const userAppointmentDoctor = await Appointment.findAll(
+//         {
+//             where: { 
+//                 user_id: req.userId 
+//             },
+//             include: [
+//                 Service,
+//             {
+//             model: User,
+//             attributes: {
+//                 exclude: ["password", "role_id", "createdAt", "updatedAt"]
+//                 },
+//             },
+//             {
+//             model: Doctor,
+//             attributes: {
+//                 exclude: ["user_id", "createdAt", "updatedAt"]
+//                 },
+//                 include: {
+//                     model: User,
+//                     attributes: {
+//                         exclude: ["password", "role_id", "createdAt", "updatedAt"]
+//                         },
+//                     }
+//             },
+//             ],
+//                 attributes: {
+//                 exclude: ["user_id", "doctor_id", "service_id"]
+//                 }
+//             }
+//         )
+//         return res.json(userAppointmentDoctor)
+//         } catch (error) {
+//         return res.status(500).send(error.message)
+//     }
 
 
 
