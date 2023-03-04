@@ -60,7 +60,7 @@ authController.login = async (req, res) => {
             email: user.email,
             roleId: user.role_id
         },
-        'secreto',
+        process.env.JWT_SECRET,
         {expiresIn: '90h'}
     );
 
