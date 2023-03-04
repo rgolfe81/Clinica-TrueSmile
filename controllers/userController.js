@@ -1,16 +1,14 @@
-const { User } = require("../models/index");
-const jwt = require('jsonwebtoken')
+const { User, Doctor } = require("../models");
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const userController = {};
 
 userController.profile = async(req, res) => {
     try {
         const userId = req.userId;
-        const user = await User.findOne(
-        {
-            user_id: userId,
-        }   
-        )
+        const user = await User.findByPk(userId)
+
         return res.json(user);
     } catch (error) {
         return res.status(500).send(error.message)
@@ -22,7 +20,7 @@ userController.updateUser = async (req, res) => {
         const { name, password } = req.body;
         const userId = req.userId
 
-        const encryptedPassword = bcrypt.hashSync(password, 10);
+        // const encryptedPassword = bcrypt.hashSync(password, 10);
 
         const updateUSer = await User.update(
             {
@@ -50,28 +48,28 @@ userController.updateUser = async (req, res) => {
     }
 }
 
-userController.getAppointment = async (req, res) => {
-    try {
-        const userAppointment = await User.findByPk(
-            req.userId,
-            { 
-                include: [
-                    {
-                    model: Service,
-                    through: {
-                        attributes: ["doctor_id", "patient_id", "dental_intervention_id", "createdAt",],
-                    }
+// userController.getAppointment = async (req, res) => {
+//     try {
+//         const userAppointment = await User.findByPk(
+//             req.userId,
+//             { 
+//                 include: [
+//                     {
+//                     model: Service,
+//                     through: {
+//                         attributes: ["doctor_id", "patient_id", "dental_intervention_id", "createdAt",],
+//                     }
                     
-                },
-            ]
-            }
-        )
-        return res.json(userAppointment)
-    } catch (error) {
+//                 },
+//             ]
+//             }
+//         )
+//         return res.json(userAppointment)
+//     } catch (error) {
         
-        return res.status(500).send(error.message)
-    }
-}
+//         return res.status(500).send(error.message)
+//     }
+// }
 
 // userController.getAppointmentDoctor = async (req, res) => {
 //     const userAppointmentDoctor = await Appointment.findAll(

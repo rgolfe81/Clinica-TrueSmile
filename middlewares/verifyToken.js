@@ -10,7 +10,7 @@ const verifyToken = (req, res, next) => {
 
         const [strategy, token] = authorization.split(" ");
 
-        const decoded = jwt.verify(token, 'secreto');
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
         req.userId = decoded.userId;
         req.roleId = decoded.roleId;
