@@ -1,11 +1,9 @@
-const { User, Patient, Appointment } = require("../models");
-// const bcrypt = require('bcrypt');
-// const jwt = require('jsonwebtoken');
-
+const { Appointment} = require("../models");
 const appointmentController = {};
 
 appointmentController.createAppointments = async (req, res) => {
     try {
+<<<<<<< HEAD
         const { date } = req.body;
         const patientId = req.patient_id;
         const doctorId = req.doctor_id;
@@ -17,10 +15,19 @@ appointmentController.createAppointments = async (req, res) => {
                 date: date,
             }
         )
+=======
+        const { date, doctor_id, patient_id } = req.body;
 
-        return res.json(newAppointment);
+        const newAppointment = await Appointment.create({
+            date: date,
+            doctor_id: doctor_id,
+            patient_id: patient_id
+        });
+>>>>>>> 25b4efae36a9e4abfdf23cfe7746978d0dda352d
+
+    return res.json(newAppointment);
     } catch (error) {
-        return res.status(500).send(error.message)
+    return res.status(500).send(error.message);
     }
 }
 
