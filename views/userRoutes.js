@@ -7,6 +7,5 @@ const verifyToken = require('../middlewares/verifyToken');
 
 router.get('/profile/:id', verifyToken, userController.profile)
 router.put('/update/:id', verifyToken, userController.updateUser)
-router.get('/users/appointment', verifyToken, userController.getCitas)
 
 module.exports = router;
