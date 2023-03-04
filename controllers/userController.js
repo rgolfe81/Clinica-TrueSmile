@@ -46,5 +46,27 @@ userController.updateUser = async (req, res) => {
     }
 }
 
+userController.getCitas = async (req, res) => {
+    try {
+        const userCitas = await User.findByPk(
+            req.userId,
+            { 
+                include: [
+                    {
+                    model: Service,
+                    through: {
+                        attributes: ["doctor_id", "patient_id", "dental_intervention_id", "createdAt",],
+                    }
+                    
+                },
+            ]
+            }
+        )
+        return res.json(userCitas)
+    } catch (error) {
+        
+        return res.status(500).send(error.message)
+    }
+}
 
 module.exports = userController;
