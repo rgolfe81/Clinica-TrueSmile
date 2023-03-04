@@ -11,5 +11,5 @@ const router = require('express').Router();
 // router.get('/view-doctor', appointmentController.view-doctor)
 
 router.post('/create', verifyToken, appointmentController.createAppointments)
-
+router.put('/update', verifyToken, appointmentController.updateAppointments)
 module.exports = router;

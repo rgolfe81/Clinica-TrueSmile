@@ -7,13 +7,13 @@ const appointmentController = {};
 appointmentController.createAppointments = async (req, res) => {
     try {
         const { date } = req.body;
-        const patient_id = req.patientId;
-        const doctor_id = req.doctorId;
+        const patientId = req.patient_id;
+        const doctorId = req.doctor_id;
 
         const newAppointment = await Appointment.create(
             {
-                patient_id: patient_id,
-                doctor_id: doctor_id,
+                patient_id: patientId,
+                doctor_id: doctorId,
                 date: date,
             }
         )
@@ -24,6 +24,23 @@ appointmentController.createAppointments = async (req, res) => {
     }
 }
 
+
+appointmentController.updateAppointments = async (req, res) => {
+    try{
+        const { date, patient_id, doctor_id} = req.body;
+
+        const updateAppointments = await Appointment.update(
+            {
+                date: date,
+                patient_id: patient_id,
+                doctor_id: doctor_id
+            }
+        )
+        return res.json(updateAppointments);
+    }catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
 
 // appointmentController.getAppointment = async (req, res) => {
 //     try {
