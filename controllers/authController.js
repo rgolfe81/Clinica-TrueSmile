@@ -1,4 +1,4 @@
-const { User, Patient } = require('../models/index');
+const { User, Patient } = require('../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -42,7 +42,7 @@ authController.login = async (req, res) => {
             {
                 where: {email: email}
             }
-            );
+        );
 
         if(!user){
             return res.send('This email is wrong')
