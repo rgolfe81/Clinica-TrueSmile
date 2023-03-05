@@ -28,7 +28,7 @@ appointmentController.updateAppointments = async (req, res) => {
         }
 
         if (!appointmentId) {
-            return res.status(500).send('Appointment not found');
+            return res.status(404).send('Appointment not found');
         }
 
         const updatedAppointment = await Appointment.update(
@@ -43,7 +43,7 @@ appointmentController.updateAppointments = async (req, res) => {
         if (!updatedAppointment){
             return res.send("Appointment not updated")
         }
-        return res.send("Appointment updated successfully");
+        return res.send("Appointment updated succesfuly");
     } catch (error) {
         console.error(error);
         return res.status(500).send(error.message);
