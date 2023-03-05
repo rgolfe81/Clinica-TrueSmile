@@ -39,16 +39,16 @@ Los doctores tendrán acceso a ver los pacientes registrados así como a las cit
 Tecnologías utilizadas:
 <div align="center">
 <a href="https://sequelize.org//">
-    <img src= ""/>
+    <img src= "./img/sequelize.png"/>
 </a>
 <a href="https://www.expressjs.com/">
-    <img src= ""/>
+    <img src= "./img/express-js.png"/>
 </a>
 <a href="https://nodejs.org/es/">
-    <img src= ""/>
+    <img src= "./img/nodejs.png"/>
 </a>
 <a href="https://developer.mozilla.org/es/docs/Web/JavaScript">
-    <img src= ""/>
+    <img src= "./img/javascript.png"/>
 </a>
  </div>
 
@@ -58,12 +58,17 @@ Tecnologías utilizadas:
 
 ## Instalación en local
 1. Clonar el repositorio
-2. ` $ npm install `
-3. Conectamos nuestro repositorio con la base de datos 
-4. ``` $ Ejecutamos las migraciones ``` 
-5. ``` $ Ejecutamos los seeders ``` 
-6. ``` $ npm run dev ``` 
-7. ...
+2. Instalar dependencia y librerias
+     ` $ npm i express nodemon dotenv mysql2 sequelize sequelize-cli bcrypt jsonwebtoken `
+3. Conectar el repositorio con la base de datos 
+        `$ npm sequelize-cli db:create`
+4.  Ejecutar las migraciones
+        `$ npx sequelize-cli db: migrate`
+5.  Ejecutar los seeders 
+        `$ npx sequelize db:seed:all`
+6.  Levantar el servidor
+        `$ npm run dev` 
+
 
 ## Endpoints
 <details>
@@ -190,4 +195,12 @@ https://github.com/PaulaRibelles
 
 ## Agradecimientos:
 
-Agradezco a mis compañeros el tiempo dedicado a este proyecto:
+- A los profesores y compañeros de Geekshubs por encontrar siempre un minuto para ayudarnos. 
+
+- A nuestras respectivas parejas por entender que le dediquemos las 24 horas del día al proyecto y por no dejar que nuestra taza de café se vacíe.
+
+## Contacto: 
+
+· Rubén Golfe: rgolfe81@gmail.com
+
+· Paula Ribelles: ribelles.camacho@gmail.com
