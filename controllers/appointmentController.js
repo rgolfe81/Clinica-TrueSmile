@@ -1,4 +1,4 @@
-const { Appointment} = require("../models");
+const { Appointment, Patient, Doctor} = require("../models");
 const appointmentController = {};
 
 appointmentController.createAppointments = async (req, res) => {
@@ -15,26 +15,75 @@ appointmentController.createAppointments = async (req, res) => {
     } catch (error) {
     return res.status(500).send(error.message);
     }
-}
-
+};
 
 appointmentController.updateAppointments = async (req, res) => {
-    try{
-        const { date, patient_id, doctor_id} = req.body;
+    try {
+        const { date, patient_id, doctor_id } = req.body;
+        const appointmentId = req.params.id;
 
-        const updateAppointments = await Appointment.findByPk(appointment_id)
-        (
+        let updateFields = {
+            date: date,
+            patient_id: patient_id,
+            doctor_id: doctor_id
+        }
+
+        if (!appointmentId) {
+            return res.status(500).send('Appointment not found');
+        }
+
+        const updatedAppointment = await Appointment.update(
+            updateFields,
             {
-                date: date,
-                patient_id: patient_id,
-                doctor_id: doctor_id
+                where: {
+                    id: appointmentId
+                }
             }
-        )
-        return res.json(updateAppointments);
-    }catch (error) {
-        return res.status(500).send(error.message)
+        );
+        
+        if (!updatedAppointment){
+            return res.send("Appointment not updated")
+        }
+        return res.send("Appointment updated successfully");
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send(error.message);
     }
-}
+};
+
+
+appointmentController.deleteAppointments = async (req, res) => {
+    try{
+        const { date } = req.body;
+        const appointmentId = req.params.id;
+
+        let deleteFields = {
+            date: date,
+        }
+
+        if (!appointmentId){
+            return res.status(500).send('Appointment not found');
+        }
+
+        const deleteAppointment = await Appointment.delete(
+            deleteFields,
+            {
+                where: {
+                    id: appointmentId
+                }
+            }
+        );
+
+        if (!deleteAppointment){
+            return res.send("Appointment not deleted")
+        }
+        return res.send("Appointment deleted successfully");
+    }catch (error) {
+        console.error(error);
+        return res.status(500).send(error.message);
+    }
+};
+
 
 // appointmentController.getAppointment = async (req, res) => {
 //     try {
