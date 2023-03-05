@@ -6,9 +6,8 @@ const router = require('express').Router();
 
 router.post('/create', verifyToken, appointmentController.createAppointments)
 router.put('/update/:id', verifyToken, appointmentController.updateAppointments)
-// router.get('/view', appointmentController.view)
-// router.get('/view-doctor', appointmentController.view-doctor)
-
+router.get("/viewPatient", verifyToken, appointmentController.getPatientAppointments)
+router.get("/viewDoctor", verifyToken, appointmentController.getDoctorAppointments)
 
 
 module.exports = router;
