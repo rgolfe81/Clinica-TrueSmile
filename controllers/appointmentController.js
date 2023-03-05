@@ -50,6 +50,38 @@ appointmentController.updateAppointments = async (req, res) => {
     }
 };
 
+appointmentController.deleteAppointments = async (req, res) => {
+    try{
+        const { date } = req.body;
+        const appointmentId = req.params.id;
+
+        let deleteFields = {
+            date: date,
+        }
+
+        if (!appointmentId){
+            return res.status(500).send('Appointment not found');
+        }
+
+        const deleteAppointment = await Appointment.delete(
+            deleteFields,
+            {
+                where: {
+                    id: appointmentId
+                }
+            }
+        );
+
+        if (!deleteAppointment){
+            return res.send("Appointment not deleted")
+        }
+        return res.send("Appointment deleted successfully");
+    }catch (error) {
+        console.error(error);
+        return res.status(500).send(error.message);
+    }
+};
+
 appointmentController.getPatientAppointments = async (req, res) => {
     try {
         const appointments = await Appointment.findAll({

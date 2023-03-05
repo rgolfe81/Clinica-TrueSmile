@@ -4,6 +4,6 @@ const router = require('express').Router();
 
 //ENDPOINTS
 
-router.get('all-appointments', verifyToken, doctorController.getAllAppointments)
+router.get('all-patients', verifyToken, doctorController.getAllAppointments)
 
 module.exports = router;

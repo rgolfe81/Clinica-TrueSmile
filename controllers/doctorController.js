@@ -16,8 +16,6 @@ doctorController.getAllPatients = async (req, res) => {
                         attributes: {exclude: ["password", "role_id", "createdAt", "updatedAt"]},
                     },
                 },
-                {
-                }
             ],
             attributes: {
                 exclude: ["patient_id", "doctor_id", "createdAt", "updatedAt"]
