@@ -8,9 +8,6 @@ router.post('/create', verifyToken, appointmentController.createAppointments)
 // router.get('/view', appointmentController.view)
 // router.get('/view-doctor', appointmentController.view-doctor)
 
-<<<<<<< HEAD
 router.post('/create', verifyToken, appointmentController.createAppointments)
-router.put('/update', verifyToken, appointmentController.updateAppointments)
-=======
->>>>>>> 25b4efae36a9e4abfdf23cfe7746978d0dda352d
+router.put('/update/:id', verifyToken, appointmentController.updateAppointments)
 module.exports = router;

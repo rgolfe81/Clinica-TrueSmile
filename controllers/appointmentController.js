@@ -3,19 +3,6 @@ const appointmentController = {};
 
 appointmentController.createAppointments = async (req, res) => {
     try {
-<<<<<<< HEAD
-        const { date } = req.body;
-        const patientId = req.patient_id;
-        const doctorId = req.doctor_id;
-
-        const newAppointment = await Appointment.create(
-            {
-                patient_id: patientId,
-                doctor_id: doctorId,
-                date: date,
-            }
-        )
-=======
         const { date, doctor_id, patient_id } = req.body;
 
         const newAppointment = await Appointment.create({
@@ -23,7 +10,6 @@ appointmentController.createAppointments = async (req, res) => {
             doctor_id: doctor_id,
             patient_id: patient_id
         });
->>>>>>> 25b4efae36a9e4abfdf23cfe7746978d0dda352d
 
     return res.json(newAppointment);
     } catch (error) {
@@ -36,7 +22,8 @@ appointmentController.updateAppointments = async (req, res) => {
     try{
         const { date, patient_id, doctor_id} = req.body;
 
-        const updateAppointments = await Appointment.update(
+        const updateAppointments = await Appointment.findByPk(appointment_id)
+        (
             {
                 date: date,
                 patient_id: patient_id,
