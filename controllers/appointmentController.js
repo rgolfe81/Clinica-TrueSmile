@@ -29,7 +29,11 @@ appointmentController.updateAppointments = async (req, res) => {
         }
 
         if (!appointmentId) {
+<<<<<<< HEAD
             return res.status(500).send('Appointment not found');
+=======
+            return res.status(404).send('Appointment not found');
+>>>>>>> 6e7bde966f5a588547db81a016472719cad49057
         }
 
         const updatedAppointment = await Appointment.update(
@@ -44,6 +48,7 @@ appointmentController.updateAppointments = async (req, res) => {
         if (!updatedAppointment){
             return res.send("Appointment not updated")
         }
+<<<<<<< HEAD
         return res.send("Appointment updated successfully");
     } catch (error) {
         console.error(error);
@@ -84,6 +89,14 @@ appointmentController.deleteAppointments = async (req, res) => {
     }
 };
 
+=======
+        return res.send("Appointment updated succesfuly");
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('Error interno del servidor');
+    }
+};
+>>>>>>> 6e7bde966f5a588547db81a016472719cad49057
 
 // appointmentController.getAppointment = async (req, res) => {
 //     try {
