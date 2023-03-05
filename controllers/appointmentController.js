@@ -29,7 +29,7 @@ appointmentController.updateAppointments = async (req, res) => {
         }
 
         if (!appointmentId) {
-            return res.status(404).send('No se encontró la cita');
+            return res.status(404).send('Appointment not found');
         }
 
         const updatedAppointment = await Appointment.update(
@@ -40,8 +40,11 @@ appointmentController.updateAppointments = async (req, res) => {
                 }
             }
         );
-
-        return res.send(`Appointment ${appointmentId} updated succesfuly`);
+        
+        if (!updatedAppointment){
+            return res.send("Appointment not updated")
+        }
+        return res.send("Appointment updated succesfuly");
     } catch (error) {
         console.error(error);
         return res.status(500).send('Error interno del servidor');
