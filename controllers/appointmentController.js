@@ -3,19 +3,6 @@ const appointmentController = {};
 
 appointmentController.createAppointments = async (req, res) => {
     try {
-<<<<<<< HEAD
-        const { date } = req.body;
-        const patientId = req.patient_id;
-        const doctorId = req.doctor_id;
-
-        const newAppointment = await Appointment.create(
-            {
-                patient_id: patientId,
-                doctor_id: doctorId,
-                date: date,
-            }
-        )
-=======
         const { date, doctor_id, patient_id } = req.body;
 
         const newAppointment = await Appointment.create({
@@ -23,7 +10,6 @@ appointmentController.createAppointments = async (req, res) => {
             doctor_id: doctor_id,
             patient_id: patient_id
         });
->>>>>>> 25b4efae36a9e4abfdf23cfe7746978d0dda352d
 
     return res.json(newAppointment);
     } catch (error) {
@@ -31,57 +17,36 @@ appointmentController.createAppointments = async (req, res) => {
     }
 };
 
-appointmentController.getAppointmentsByPatient = async (req, res) => {
-    try {
-      const { patientId } = req.params;
-  
-      // Busca todas las citas del paciente
-      const appointments = await Appointment.findAll({
-        where: { patient_id: patientId },
-        include: [
-          { model: Patient, as: "Patient" },
-          { model: Doctor, as: "Doctor" }
-        ]
-      });
-  
-      return res.json(appointments);
-    } catch (error) {
-      return res.status(500).send(error.message);
-    }
-  };
-  
-  // Controlador para obtener todas las citas de un doctor
-  appointmentController.getAppointmentsByDoctor = async (req, res) => {
-    try {
-      const { doctorId } = req.params;
-  
-      // Busca todas las citas del doctor
-      const appointments = await Appointment.findAll({
-        where: { doctor_id: doctorId }
-      });
-  
-      return res.json(appointments);
-    } catch (error) {
-      return res.status(500).send(error.message);
-    }
-  };
-
 appointmentController.updateAppointments = async (req, res) => {
-    try{
-        const { date, patient_id, doctor_id} = req.body;
+    try {
+        const { date, patient_id, doctor_id } = req.body;
+        const appointmentId = req.params.id;
 
-        const updateAppointments = await Appointment.update(
+        let updateFields = {
+            date: date,
+            patient_id: patient_id,
+            doctor_id: doctor_id
+        }
+
+        if (!appointmentId) {
+            return res.status(404).send('No se encontró la cita');
+        }
+
+        const updatedAppointment = await Appointment.update(
+            updateFields,
             {
-                date: date,
-                patient_id: patient_id,
-                doctor_id: doctor_id
+                where: {
+                    id: appointmentId
+                }
             }
-        )
-        return res.json(updateAppointments);
-    }catch (error) {
-        return res.status(500).send(error.message)
+        );
+
+        return res.send(`Appointment ${appointmentId} updated succesfuly`);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('Error interno del servidor');
     }
-}
+};
 
 // appointmentController.getAppointment = async (req, res) => {
 //     try {
