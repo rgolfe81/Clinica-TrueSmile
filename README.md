@@ -32,7 +32,7 @@ Los doctores tendrán acceso a ver los pacientes registrados así como a las cit
 
 ## Deploy 🚀
 <div align="center">
-    <a href="https://github.com/rgolfe81/Clinica-TrueSmile.git">🚀<strong>Url a producción </strong></a>🚀
+    <a href="https://github.com/rgolfe81/Clinica-TrueSmile.git">🚀<strong>Clínica TrueSmile </strong></a>🚀
 </div>
 
 ## Stack
@@ -54,7 +54,7 @@ Tecnologías utilizadas:
 
 
 ## Diagrama BD
-!['imagen-db'](./images/sampleDb.png)
+!['imagen-db'](./img/Diagrama_TrueSmile_workbench.png)
 
 ## Instalación en local
 1. Clonar el repositorio
