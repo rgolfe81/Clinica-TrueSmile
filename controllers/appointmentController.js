@@ -120,4 +120,27 @@ appointmentController.getDoctorAppointments = async (req, res) => {
     }
 };
 
+userController.getAppointment = async (req, res) => {
+    try {
+        const userAppointment = await User.findByPk(
+            req.userId,
+            { 
+                include: [
+                    {
+                    model: Appointment,
+                    through: {
+                        attributes: ["doctor_id", "patient_id", "dental_intervention_id", "createdAt",],
+                    }
+
+                },
+            ]
+            }
+        )
+        return res.json(userAppointment)
+    } catch (error) {
+
+        return res.status(500).send(error.message)
+    }
+}
+
 module.exports = appointmentController;
