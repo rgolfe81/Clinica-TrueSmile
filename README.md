@@ -90,9 +90,14 @@ Tecnologías utilizadas:
         body:
         ``` js
             {
-                "user": "Vicent",
+                "name": "Vicent",
+                "surname": "Pedreguer",
+                "DNI": "11111111X",
+                "city": "València",
                 "email": "vicent@vicent.com",
-                "password": "000000"
+                "phone": "66666666",
+                "password": "000000",
+                ,
             }
         ```
 
@@ -165,8 +170,8 @@ Tecnologías utilizadas:
 </details>
 
 ## Futuras funcionalidades :pencil:
-[ ] Añadir tipos de intervención 
-[ ] Añadir historial médico  
+-  Añadir tipos de intervención 
+-  Añadir historial médico  
 
 ## Contribuciones :mailbox:
 Las sugerencias y aportaciones son siempre bienvenidas.  
@@ -194,7 +199,9 @@ Este proyecto se encuentra bajo licencia de MIT License
 
 ## Webgrafia :books:
 Para conseguir mi objetivo he recopilado información de:
+
 - <a href="https://sequelize.org"></a>
+
 - <a href="https://stackoverflow.com"></a>
 
 ## Colaboradores :raising_hand:
