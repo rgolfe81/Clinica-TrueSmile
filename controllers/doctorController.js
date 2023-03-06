@@ -1,25 +1,24 @@
-const { Appointment, Patient, Doctor, User} = require("../models");
+const { Appointment, Patient, Doctor, User } = require("../models");
+
 const doctorController = {};
 
 doctorController.getAllPatients = async (req, res) => {
-    try{
+    try {
         const allPatients = await Patient.findAll({
             where: {
-                doctor_id: req.doctorId
+                doctor_id: req.doctorId,
             },
             include: [
                 {
-                    model: Patient,
-                    attributes: {exclude: ["createdAt", "updatedAt"]},
-                    include:{
-                        model: User,
-                        attributes: {exclude: ["password", "role_id", "createdAt", "updatedAt"]},
+                    model: User,
+                    attributes: {
+                        exclude: ["password", "role_id", "createdAt", "updatedAt"],
                     },
                 },
             ],
             attributes: {
-                exclude: ["patient_id", "doctor_id", "createdAt", "updatedAt"]
-            }
+                exclude: ["doctor_id", "createdAt", "updatedAt"],
+            },
         });
         return res.json(allPatients);
     } catch (error) {

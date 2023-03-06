@@ -28,7 +28,7 @@ appointmentController.updateAppointments = async (req, res) => {
         }
 
         if (!appointmentId) {
-            return res.status(404).send('Appointment not found');
+            return res.send('Appointment not found');
         }
 
         const updatedAppointment = await Appointment.update(
@@ -51,34 +51,24 @@ appointmentController.updateAppointments = async (req, res) => {
 };
 
 appointmentController.deleteAppointments = async (req, res) => {
-    try{
-        const { date } = req.body;
+    try {
         const appointmentId = req.params.id;
 
-        let deleteFields = {
-            date: date,
-        }
 
-        if (!appointmentId){
-            return res.status(500).send('Appointment not found');
-        }
+    const deletedAppointment = await Appointment.destroy({
+        where: {
+            id: appointmentId
+        },
+    });
 
-        const deleteAppointment = await Appointment.delete(
-            deleteFields,
-            {
-                where: {
-                    id: appointmentId
-                }
-            }
-        );
+    if (!deletedAppointment) {
+        return res.send("Appointment not found");
+    }
 
-        if (!deleteAppointment){
-            return res.send("Appointment not deleted")
-        }
-        return res.send("Appointment deleted successfully");
-    }catch (error) {
-        console.error(error);
-        return res.status(500).send(error.message);
+    return res.send("Appointment deleted successfully");
+    } catch (error) {
+    console.error(error);
+    return res.status(500).send(error.message);
     }
 };
 
@@ -151,28 +141,5 @@ appointmentController.getDoctorAppointments = async (req, res) => {
     return res.status(500).send(error.message);
     }
 };
-
-userController.getAppointment = async (req, res) => {
-    try {
-        const userAppointment = await User.findByPk(
-            req.userId,
-            { 
-                include: [
-                    {
-                    model: Appointment,
-                    through: {
-                        attributes: ["doctor_id", "patient_id", "dental_intervention_id", "createdAt",],
-                    }
-
-                },
-            ]
-            }
-        )
-        return res.json(userAppointment)
-    } catch (error) {
-
-        return res.status(500).send(error.message)
-    }
-}
 
 module.exports = appointmentController;
