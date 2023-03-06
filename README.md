@@ -205,8 +205,11 @@ Para conseguir mi objetivo he recopilado información de:
 - <a href="https://stackoverflow.com">Stackoverflow</a>
 
 ## Colaboradores :raising_hand:
+<div>
+<img src= "./img/Paula.png" width="100"/>
+<a href="https://github.com/PaulaRibelles">Paula Ribelles Camacho</a>
+</div>
 
-https://github.com/PaulaRibelles
 
 ## Agradecimientos :sparkles:
 
