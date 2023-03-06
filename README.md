@@ -200,9 +200,9 @@ Este proyecto se encuentra bajo licencia de MIT License
 ## Webgrafia :books:
 Para conseguir mi objetivo he recopilado información de:
 
-- <a href="https://sequelize.org"></a>
+- <a href="https://sequelize.org">Sequelize</a>
 
-- <a href="https://stackoverflow.com"></a>
+- <a href="https://stackoverflow.com">Stackoverflow</a>
 
 ## Colaboradores :raising_hand:
 
