@@ -5,10 +5,18 @@ appointmentController.createAppointments = async (req, res) => {
     try {
         const { date, doctor_id, patient_id } = req.body;
 
+        const patient = await Patient.findOne({where: {
+            user_id : req.userId
+        }})
+
+        if (!patient){
+            return res.send("You are not a patient");
+        }
+
         const newAppointment = await Appointment.create({
             date: date,
             doctor_id: doctor_id,
-            patient_id: patient_id
+            patient_id: patient.id
         });
 
     return res.json(newAppointment);
@@ -54,8 +62,7 @@ appointmentController.deleteAppointments = async (req, res) => {
     try {
         const appointmentId = req.params.id;
 
-
-    const deletedAppointment = await Appointment.destroy({
+        const deletedAppointment = await Appointment.destroy({
         where: {
             id: appointmentId
         },

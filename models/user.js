@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'role_id'
       });
       User.hasMany(models.Patient, {
-        foreingKey:'user_id'
+        foreignKey:'user_id'
       });
       User.hasMany(models.Doctor,{
         foreignKey: 'user_id'
