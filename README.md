@@ -192,7 +192,7 @@ Puedes hacerlo de dos maneras:
 Este proyecto se encuentra bajo licencia de MIT License
 
 ## Webgrafia :books:
-Para conseguir mi objetivo he recopilado información de:
+Para conseguir nuestro objetivo hemos recopilado información de:
 
 - <a href="https://sequelize.org">Sequelize</a>
 
