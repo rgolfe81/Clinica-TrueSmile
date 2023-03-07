@@ -81,16 +81,16 @@ appointmentController.deleteAppointments = async (req, res) => {
 
 appointmentController.getPatientAppointments = async (req, res) => {
     try {
-        const patient = await Patient.findOne({where: {
-            user_id : req.userId
-        }})
-    
-        if (!patient){
-            return res.send("You are not Patient");
+
+        const patient = await Patient.findOne({where: {user_id: req.userId}})
+
+        if(!patient){
+            return res.send("You are not a patient")
         }
+
     
         const appointments = await Appointment.findAll({
-            where: { patient_id: req.userId },
+            where: {patient_id: req.userId},
             include: [
                 {
                     model: Patient,
@@ -126,13 +126,11 @@ appointmentController.getPatientAppointments = async (req, res) => {
 appointmentController.getDoctorAppointments = async (req, res) => {
     try {
 
-    const doctor = await Doctor.findOne({where: {
-        user_id : req.userId
-    }})
+        const doctor = await Doctor.findOne({where: {user_id: req.userId}})
 
-    if (!doctor){
-        return res.send("You are not Doctor");
-    }
+        if(!doctor){
+            return res.send("You are not a doctor")
+        }
 
     const appointments = await Appointment.findAll({
         where: { doctor_id: req.userId },
