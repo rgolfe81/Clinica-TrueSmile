@@ -30,25 +30,20 @@ En ella, todos los usuarios podrán registrarse, hacer login, acceder a su perfi
 Además, los pacientes podrán ver sus citas, crearlas, modificarlas y anularlas. 
 Los doctores tendrán acceso a ver los pacientes registrados así como a las citas existentes y a las suyas propias.
 
-## Deploy 🚀
-<div align="center">
-    <a href="https://github.com/rgolfe81/Clinica-TrueSmile.git">🚀<strong>Clínica TrueSmile </strong></a>🚀
-</div>
-
 ## Stack :paperclip:
 Tecnologías utilizadas:
 <div>
 <a href="https://sequelize.org//">
-    <img src= "./img/sequelize.png" width="100"/>
+    <img src= "./img/" width="60"/>
 </a>
 <a href="https://www.expressjs.com/">
-    <img src= "./img/express-js.png" width="100"/>
+    <img src= "./img/express-js.png" width="60"/>
 </a>
 <a href="https://nodejs.org/es/">
-    <img src= "./img/nodejs.png" width="100"/>
+    <img src= "./img/nodejs.png" width="60"/>
 </a>
-<a href="https://developer.mozilla.org/es/docs/Web/JavaScript" width="100">
-    <img src= "./img/javascript.png" width="100"/>
+<a href="https://developer.mozilla.org/es/docs/Web/JavaScript">
+    <img src= "./img/javascript.png" width="60"/>
 </a>
  </div>
 
