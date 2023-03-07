@@ -113,6 +113,12 @@ appointmentController.getPatientAppointments = async (req, res) => {
 appointmentController.getDoctorAppointments = async (req, res) => {
     try {
 
+        const doctor = Doctor.findOne({where: {user_id: req.userId}})
+
+        if(!doctor){
+            return res.send("You are not a doctor")
+        }
+
     const appointments = await Appointment.findAll({
         where: { doctor_id: doctor.id },
         include: [
