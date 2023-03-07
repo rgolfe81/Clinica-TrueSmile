@@ -14,7 +14,7 @@
     <li><a href="#contribuciones">Contribuciones</a></li>
     <li><a href="#licencia">Licencia</a></li>
     <li><a href="#webgrafia">Webgrafia</a></li>
-    <li><a href="#desarrollo">Colaboradores</a></li>
+    <li><a href="#desarrollo">Autores</a></li>
     <li><a href="#agradecimientos">Agradecimientos</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ol>
@@ -34,7 +34,7 @@ Los doctores tendrán acceso a ver los pacientes registrados así como a las cit
 Tecnologías utilizadas:
 <div>
 <a href="https://sequelize.org//">
-    <img src= "./img/" width="60"/>
+    <img src= "./img/sequelize-logo.png" width="60"/>
 </a>
 <a href="https://www.expressjs.com/">
     <img src= "./img/express-js.png" width="60"/>
@@ -199,12 +199,13 @@ Para conseguir mi objetivo he recopilado información de:
 
 - <a href="https://stackoverflow.com">Stackoverflow</a>
 
-## Colaboradores :raising_hand:
+## Autores :raising_hand:
 <div>
-<img src= "./img/Paula.png" width="100"/>
+<img src= "./img/Ruben.png" width="60"/>
+<a href="https://github.com/rgolfe81">Rubén Golfe Silvestre</a>
+<img src= "./img/Paula.png" width="60"/>
 <a href="https://github.com/PaulaRibelles">Paula Ribelles Camacho</a>
 </div>
-
 
 ## Agradecimientos :sparkles:
 
