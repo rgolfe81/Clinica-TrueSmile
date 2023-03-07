@@ -1,11 +1,10 @@
-<h1 align="center"> Clinica-TrueSmile </h1>
+<h1 align="center"> Clínica-TrueSmile </h1>
 
 <details>
   <summary>Contenido 📝</summary>
   <ol>
     <li><a href="#objetivo">Objetivo</a></li>
     <li><a href="#sobre-el-proyecto">Sobre el proyecto</a></li>
-    <li><a href="#deploy">Deploy</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#diagrama-bd">Diagrama</a></li>
     <li><a href="#instalación-en-local">Instalación</a></li>
