@@ -161,4 +161,35 @@ appointmentController.getDoctorAppointments = async (req, res) => {
     }
 };
 
+
+appointmentController.getAllAppointments = async (req, res) => {
+    try{
+        const appointments = await Appointment.findAll({
+            include: [
+            {
+                model: Patient,
+                attributes: { exclude: ["createdAt", "updatedAt"] },
+                include: {
+                    model: User,
+                    attributes: { exclude: ["password", "createdAt", "updatedAt"] },
+                },
+            },
+            {
+                model: Doctor,
+                attributes: { exclude: ["user_id", "createdAt", "updatedAt"] },
+                include: {
+                    model: User,
+                    attributes: { exclude: ["password", "createdAt", "updatedAt"] },
+                },
+            },
+            ],
+        });
+
+    return res.json(appointments);
+    } catch (error) {
+    console.error(error);
+    return res.status(500).send(error.message);
+    }
+}
+
 module.exports = appointmentController;
