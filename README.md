@@ -1,4 +1,4 @@
-# Clinica-TrueSmile
+<h1 align="center"> Clinica-TrueSmile </h1>
 
 <details>
   <summary>Contenido 📝</summary>
@@ -20,12 +20,12 @@
   </ol>
 </details>
 
-## Objetivo
+## Objetivo :dart:
 Este proyecto requería crear un backend correspondiente al sistema de gestión de citas para una clínica dental. En este caso llamada TrueSmile.
 
 
-## Sobre el proyecto
-Esta aplicación está pensada para ayudar a gestionar las cientas entre pacientes y doctores de una clínica. 
+## Sobre el proyecto :file_folder:
+Esta aplicación está pensada para ayudar a gestionar las citas entre pacientes y doctores de una clínica. 
 En ella, todos los usuarios podrán registrarse, hacer login, acceder a su perfil y modificar sus datos de perfil. 
 Además, los pacientes podrán ver sus citas, crearlas, modificarlas y anularlas. 
 Los doctores tendrán acceso a ver los pacientes registrados así como a las citas existentes y a las suyas propias.
@@ -35,7 +35,7 @@ Los doctores tendrán acceso a ver los pacientes registrados así como a las cit
     <a href="https://github.com/rgolfe81/Clinica-TrueSmile.git">🚀<strong>Clínica TrueSmile </strong></a>🚀
 </div>
 
-## Stack
+## Stack :paperclip:
 Tecnologías utilizadas:
 <div>
 <a href="https://sequelize.org//">
@@ -53,24 +53,33 @@ Tecnologías utilizadas:
  </div>
 
 
-## Diagrama BD
+## Diagrama BD :chart_with_upwards_trend:
 !['imagen-db'](./img/Diagrama_TrueSmile_workbench.png)
 
-## Instalación en local
+## Instalación en local :electric_plug:
 1. Clonar el repositorio
 2. Instalar dependencia y librerias
-     ` $ npm i express nodemon dotenv mysql2 sequelize sequelize-cli bcrypt jsonwebtoken `
+```
+    ` $ npm i express nodemon dotenv mysql2 sequelize sequelize-cli bcrypt jsonwebtoken `
+```
 3. Conectar el repositorio con la base de datos 
-        `$ npm sequelize-cli db:create`
+```
+    `$ npm sequelize-cli db:create`
+```
 4.  Ejecutar las migraciones
-        `$ npx sequelize-cli db: migrate`
+```
+    `$ npx sequelize-cli db: migrate`
+```
 5.  Ejecutar los seeders 
-        `$ npx sequelize db:seed:all`
+```
+    `$ npx sequelize db:seed:all`
+```
 6.  Levantar el servidor
-        `$ npm run dev` 
+```
+    `$ npm run dev` 
+```
 
-
-## Endpoints
+## Endpoints :pushpin:
 <details>
 <summary>Endpoints</summary>
 
@@ -81,9 +90,14 @@ Tecnologías utilizadas:
         body:
         ``` js
             {
-                "user": "Vicent",
+                "name": "Vicent",
+                "surname": "Pedreguer",
+                "DNI": "11111111X",
+                "city": "València",
                 "email": "vicent@vicent.com",
-                "password": "000000"
+                "phone": "66666666",
+                "password": "000000",
+                ,
             }
         ```
 
@@ -130,14 +144,13 @@ Tecnologías utilizadas:
             }
         ``` 
 
-    - CREAR CITAS  
+    - MODIFICAR CITAS  
             PUT localhost:3000/appointment/update
         body:
         ``` js
             {
             "date": "2023-03-20 14:00:00",
             "doctor_id": 1,
-            "patient_id": 3,
             }
         ``` 
     - VER CITAS COMO PACIENTE
@@ -156,11 +169,11 @@ Tecnologías utilizadas:
 
 </details>
 
-## Futuras funcionalidades
-[ ] Añadir tipos de intervención 
-[ ] Añadir historial médico  
+## Futuras funcionalidades :pencil:
+-  Añadir tipos de intervención 
+-  Añadir historial médico  
 
-## Contribuciones
+## Contribuciones :mailbox:
 Las sugerencias y aportaciones son siempre bienvenidas.  
 
 Puedes hacerlo de dos maneras:
@@ -181,25 +194,30 @@ Puedes hacerlo de dos maneras:
         ```
     - Abre una solicitud de Pull Request
 
-## Licencia
+## Licencia :scroll:
 Este proyecto se encuentra bajo licencia de MIT License
 
-## Webgrafia:
+## Webgrafia :books:
 Para conseguir mi objetivo he recopilado información de:
-- <a href="https://sequelize.org"></a>
-- <a href="https://stackoverflow.com"></a>
 
-## Colaboradores:
+- <a href="https://sequelize.org">Sequelize</a>
 
-https://github.com/PaulaRibelles
+- <a href="https://stackoverflow.com">Stackoverflow</a>
 
-## Agradecimientos:
+## Colaboradores :raising_hand:
+<div>
+<img src= "./img/Paula.png" width="100"/>
+<a href="https://github.com/PaulaRibelles">Paula Ribelles Camacho</a>
+</div>
+
+
+## Agradecimientos :sparkles:
 
 - A los profesores y compañeros de Geekshubs por encontrar siempre un minuto para ayudarnos. 
 
 - A nuestras respectivas parejas por entender que le dediquemos las 24 horas del día al proyecto y por no dejar que nuestra taza de café se vacíe.
 
-## Contacto: 
+## Contacto :email:
 
 · Rubén Golfe: rgolfe81@gmail.com
 
