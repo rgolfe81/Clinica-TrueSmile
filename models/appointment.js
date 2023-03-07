@@ -15,10 +15,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'dental_intervention_id'
       });
       Appointment.belongsTo(models.Patient, {
-        foreingKey:'patient_id'
+        foreignKey:'patient_id'
       });
       Appointment.belongsTo(models.Doctor, {
-        foreingKey:'doctor_id'
+        foreignKey:'doctor_id'
       });
     }
   }
