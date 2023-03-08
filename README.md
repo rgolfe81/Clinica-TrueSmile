@@ -1,11 +1,10 @@
-<h1 align="center"> Clinica-TrueSmile </h1>
+<h1 align="center"> Clínica-TrueSmile </h1>
 
 <details>
   <summary>Contenido 📝</summary>
   <ol>
     <li><a href="#objetivo">Objetivo</a></li>
     <li><a href="#sobre-el-proyecto">Sobre el proyecto</a></li>
-    <li><a href="#deploy">Deploy</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#diagrama-bd">Diagrama</a></li>
     <li><a href="#instalación-en-local">Instalación</a></li>
@@ -14,7 +13,7 @@
     <li><a href="#contribuciones">Contribuciones</a></li>
     <li><a href="#licencia">Licencia</a></li>
     <li><a href="#webgrafia">Webgrafia</a></li>
-    <li><a href="#desarrollo">Colaboradores</a></li>
+    <li><a href="#desarrollo">Autores</a></li>
     <li><a href="#agradecimientos">Agradecimientos</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ol>
@@ -30,25 +29,20 @@ En ella, todos los usuarios podrán registrarse, hacer login, acceder a su perfi
 Además, los pacientes podrán ver sus citas, crearlas, modificarlas y anularlas. 
 Los doctores tendrán acceso a ver los pacientes registrados así como a las citas existentes y a las suyas propias.
 
-## Deploy 🚀
-<div align="center">
-    <a href="https://github.com/rgolfe81/Clinica-TrueSmile.git">🚀<strong>Clínica TrueSmile </strong></a>🚀
-</div>
-
 ## Stack :paperclip:
 Tecnologías utilizadas:
 <div>
 <a href="https://sequelize.org//">
-    <img src= "./img/sequelize.png" width="100"/>
+    <img src= "./img/sequelize-logo.png" width="60"/>
 </a>
 <a href="https://www.expressjs.com/">
-    <img src= "./img/express-js.png" width="100"/>
+    <img src= "./img/express-js.png" width="60"/>
 </a>
 <a href="https://nodejs.org/es/">
-    <img src= "./img/nodejs.png" width="100"/>
+    <img src= "./img/nodejs.png" width="60"/>
 </a>
-<a href="https://developer.mozilla.org/es/docs/Web/JavaScript" width="100">
-    <img src= "./img/javascript.png" width="100"/>
+<a href="https://developer.mozilla.org/es/docs/Web/JavaScript">
+    <img src= "./img/javascript.png" width="60"/>
 </a>
  </div>
 
@@ -198,18 +192,19 @@ Puedes hacerlo de dos maneras:
 Este proyecto se encuentra bajo licencia de MIT License
 
 ## Webgrafia :books:
-Para conseguir mi objetivo he recopilado información de:
+Para conseguir nuestro objetivo hemos recopilado información de:
 
 - <a href="https://sequelize.org">Sequelize</a>
 
 - <a href="https://stackoverflow.com">Stackoverflow</a>
 
-## Colaboradores :raising_hand:
+## Autores :raising_hand:
 <div>
-<img src= "./img/Paula.png" width="100"/>
+<img src= "./img/Ruben.png" width="60"/>
+<a href="https://github.com/rgolfe81">Rubén Golfe Silvestre</a>
+<img src= "./img/Paula.png" width="60"/>
 <a href="https://github.com/PaulaRibelles">Paula Ribelles Camacho</a>
 </div>
-
 
 ## Agradecimientos :sparkles:
 
