@@ -46,7 +46,7 @@ userController.updateUser = async (req, res) => {
             return res.send('User not updated')
         }
 
-        return res.send('User updated')
+        return res.send('User updated successfully')
     } catch (error) {
         return res.status(500).send(error.message)
     }

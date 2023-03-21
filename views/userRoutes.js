@@ -4,7 +4,7 @@ const verifyToken = require('../middlewares/verifyToken');
 
 // ENDPOINTS
 
-router.get('/profile/:id', verifyToken, userController.profile)
-router.put('/update/:id', verifyToken, userController.updateUser)
+router.get('/profile', verifyToken, userController.profile)
+router.put('/update', verifyToken, userController.updateUser)
 
 module.exports = router;
