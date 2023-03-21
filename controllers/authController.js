@@ -68,7 +68,8 @@ authController.login = async (req, res) => {
         {
             success: true,
             message: "Login successfully",
-            token: token
+            token: token,
+            name: user.name
         }
     )
 
