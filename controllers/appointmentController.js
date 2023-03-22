@@ -3,11 +3,14 @@ const appointmentController = {};
 
 appointmentController.createAppointments = async (req, res) => {
     try {
-        const { date, doctor_id } = req.body;
+        const { date, doctor_id, dental_intervention_id } = req.body;
 
-        const patient = await Patient.findOne({where: {
-            user_id : req.userId
-        }})
+        const patient = await Patient.findOne({
+            where: 
+                {
+                    user_id : req.userId
+                }
+            })
 
         if (!patient){
             return res.send("You are not a patient");
@@ -16,7 +19,8 @@ appointmentController.createAppointments = async (req, res) => {
         const newAppointment = await Appointment.create({
             date: date,
             doctor_id: doctor_id,
-            patient_id: patient.id
+            patient_id: patient.id,
+            dental_intervention_id: dental_intervention_id
         });
 
     return res.json(newAppointment);
