@@ -1,0 +1,28 @@
+version: "3.6"
+services: 
+  db:
+    image: mysql:5.7
+    container_name: my_db_app_ruben
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=ruben_data
+    ports:
+      - '3306:3306'
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  app:
+    build:
+      context: .
+    container_name: my_server_express
+    ports:
+      - 3000:4000
+    volumes:
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+volumes:
+  node_modules:
+
+

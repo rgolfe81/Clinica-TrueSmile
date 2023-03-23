@@ -92,32 +92,16 @@ appointmentController.getPatientAppointments = async (req, res) => {
             return res.send("You are not a patient")
         }
 
-    
         const appointments = await Appointment.findAll({
             where: {patient_id: patient.id},
-            include: [
-                {
-                    model: Patient,
-                    attributes: {
-                        exclude: ["createdAt", "updatedAt"]
-                    }
-                },
-                {
-                    model: Doctor,
-                    attributes: {
-                        exclude: ["user_id", "createdAt", "updatedAt"]
-                    },
-                    include: {
-                        model: User,
-                        attributes: {
-                            exclude: ["password", "role_id", "createdAt", "updatedAt"]
-                        }
-                    }
-                }
-            ],
-            attributes: {
-                exclude: ["patient_id", "doctor_id", "createdAt", "updatedAt"]
-            }
+            include: 
+            [
+                {model: Patient, attributes: {exclude: ["createdAt", "updatedAt"]}},
+                {model: Dental_intervention, attributes: {exclude: ["createdAt", "updatedAt"]}},
+                {model: Doctor, attributes: {exclude: ["user_id", "createdAt", "updatedAt"]},
+                include: {model: User, attributes: {exclude: ["password", "role_id", "createdAt", "updatedAt"]}}}
+            ], 
+            attributes: {exclude: ["patient_id", "doctor_id", "createdAt", "updatedAt"]}
         });
 
         return res.json(appointments);
@@ -147,6 +131,7 @@ appointmentController.getDoctorAppointments = async (req, res) => {
                 attributes: { exclude: ["password", "createdAt", "updatedAt"] },
             },
         },
+        {model: Dental_intervention, attributes: {exclude: ["createdAt", "updatedAt"]}},
         {
             model: Doctor,
             attributes: { exclude: ["user_id", "createdAt", "updatedAt"] },
