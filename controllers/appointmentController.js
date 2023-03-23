@@ -1,4 +1,4 @@
-const { Appointment, Patient, Doctor, User} = require("../models");
+const { Appointment, Patient, Doctor, User, Dental_intervention} = require("../models");
 const appointmentController = {};
 
 appointmentController.createAppointments = async (req, res) => {
