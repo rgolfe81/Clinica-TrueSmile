@@ -72,7 +72,7 @@ authController.login = async (req, res) => {
             message: "Login successfully",
             token: token,
             name: user.name,
-            doctorId: user.Doctor ? user.Doctor.id : null
+            doctorId: user.Doctor.id
         }
     )
 
