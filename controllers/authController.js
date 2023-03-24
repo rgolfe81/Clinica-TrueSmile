@@ -40,7 +40,9 @@ authController.login = async (req, res) => {
 
         const user = await User.findOne(
             {
-                where: {email: email}
+                where: {email: email},
+                include:[{model: Doctor,
+                attributes: ["id"] }]
             }
         );
 
@@ -69,7 +71,8 @@ authController.login = async (req, res) => {
             success: true,
             message: "Login successfully",
             token: token,
-            name: user.name
+            name: user.name,
+            doctorId: user.Doctor ? user.Doctor.id : null
         }
     )
 
