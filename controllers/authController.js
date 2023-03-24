@@ -1,4 +1,4 @@
-const { User, Patient } = require('../models');
+const { User, Patient, Doctor} = require('../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -41,8 +41,8 @@ authController.login = async (req, res) => {
         const user = await User.findOne(
             {
                 where: {email: email}
-                // , include:[{model: Doctor,
-                // attributes: ["id"] }]
+                , include:[{model: Doctor,
+                attributes: ["id"] }]
             }
         );
 
@@ -72,7 +72,7 @@ authController.login = async (req, res) => {
             message: "Login successfully",
             token: token,
             name: user.name,
-            // doctorId: user.Doctor.id
+            doctorId: user.Doctor.id
         }
     )
 
