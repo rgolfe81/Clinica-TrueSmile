@@ -96,7 +96,8 @@ appointmentController.getPatientAppointments = async (req, res) => {
             where: {patient_id: patient.id},
             include: 
             [
-                {model: Patient, attributes: {exclude: ["createdAt", "updatedAt"]}},
+                {model: Patient, attributes: {exclude: ["createdAt", "updatedAt"]},
+                include: {model: User, attributes: {exclude: ["password", "role_id", "createdAt", "updatedAt"]}}},
                 {model: Dental_intervention, attributes: {exclude: ["createdAt", "updatedAt"]}},
                 {model: Doctor, attributes: {exclude: ["user_id", "createdAt", "updatedAt"]},
                 include: {model: User, attributes: {exclude: ["password", "role_id", "createdAt", "updatedAt"]}}}
