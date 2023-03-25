@@ -1,54 +1,63 @@
 const { User } = require("../models");
-const bcrypt = require('bcrypt');
-
+const bcrypt = require("bcrypt");
 
 const userController = {};
 
-userController.profile = async(req, res) => {
-    try {
-        const userId = req.userId;
-        const user = await User.findByPk(userId)
+userController.profile = async (req, res) => {
+  try {
+    const userId = req.userId;
+    const user = await User.findByPk(userId);
 
-        return res.json(user);
-    } catch (error) {
-        return res.status(500).send(error.message)
-    }
-}
+    return res.json(user);
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
 
 userController.updateUser = async (req, res) => {
-    try {
-        const { name, password, surname, city, phone, email } = req.body;
-        const userId = req.userId;
+  try {
+    const { name, password, surname, city, phone, email } = req.body;
+    const userId = req.userId;
 
-        let updateFields = {
-            name: name,
-            surname: surname,
-            city: city,
-            phone: phone,
-            email: email,
-        };
+    let updateFields = {
+      name: name,
+      surname: surname,
+      city: city,
+      phone: phone,
+      email: email,
+    };
 
-        if (password) {
-            const encryptedPassword = bcrypt.hashSync(password, 10);
-            updateFields.password = encryptedPassword;
-        }
-
-        const updateUser = await User.update(
-            updateFields,
-            {
-                where: {
-                    id: userId
-                }
-            }
-        );
-
-        if (!updateUser) {
-            return res.send('User not updated')
-        }
-
-        return res.send('User updated successfully')
-    } catch (error) {
-        return res.status(500).send(error.message)
+    if (password) {
+      const encryptedPassword = bcrypt.hashSync(password, 10);
+      updateFields.password = encryptedPassword;
     }
-}
+
+    const updateUser = await User.update(updateFields, {
+      where: {
+        id: userId,
+      },
+    });
+
+    if (!updateUser) {
+      return res.send("User not updated");
+    }
+
+    return res.send("User updated successfully");
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
+userController.getAllUsers = async (req, res) => {
+  try {
+    const allUsers = await User.findAll({
+      attributes: { exclude: ["password", "createdAt", "updatedAt"] },
+    });
+    return res.json(allUsers);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send(error.message);
+  }
+};
+
 module.exports = userController;
