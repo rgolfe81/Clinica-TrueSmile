@@ -164,6 +164,7 @@ appointmentController.getAllAppointments = async (req, res) => {
                     attributes: { exclude: ["password", "createdAt", "updatedAt"] },
                 },
             },
+            {model: Dental_intervention, attributes: {exclude: ["createdAt", "updatedAt"]}},
             {
                 model: Doctor,
                 attributes: { exclude: ["user_id", "createdAt", "updatedAt"] },
